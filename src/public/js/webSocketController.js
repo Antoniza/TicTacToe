@@ -300,7 +300,8 @@ function reloadHistory() {
 // * WEB SOCKET SETTINGS
 
 function wsConnect() {
-  webSocket = new WebSocket("ws://192.168.2.12:5000");
+  // webSocket = new WebSocket("ws://192.168.2.12:5000");
+  webSocket = new WebSocket("ws://" + window.location.host);
 
   webSocket.addEventListener("open", (evt) => {
     onOpen(evt);
