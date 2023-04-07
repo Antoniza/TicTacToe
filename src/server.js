@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, "./public")));
 
 const webServer = new WebSocket({
   httpServer: server,
-  autoAcceptConnections: false,
+  autoAcceptConnections: true,
 });
 
 let usersConected = [];
