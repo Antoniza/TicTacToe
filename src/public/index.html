@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Center</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/loading.css" />
+    <link rel="stylesheet" href="./css/animations.css" />
+  </head>
+  <body>
+    <div class="loading" id="loading">
+      <span></span>
+    </div>
+    
+    <div class="loading" id="loading-game">
+      <h1>Buscando rival</h1>
+      <span></span>
+    </div>
+
+    <div class="alert" id="alert">
+      <span></span>
+      <h2 class="alert-message" id="alert-message">Mensaje de alerta</h2>
+    </div>
+
+    <div class="loading" id="game-started">
+      <h1 id="starting-me"></h1>
+      <h2 class="starting-versus"><i>Vs</i></h2>
+      <h1 id="starting-rival"></h1>
+    </div>
+
+    <section class="principal" id="principal">
+      <div class="shadow-back">
+        <h1 id="redirecting" class="redirecting"></h1>
+        <div class="principal-container" id="principal-container">
+          <div class="title-container" id="title-container">
+            <span>T</span>
+            <span>I</span>
+            <span>C</span>
+            <span>T</span>
+            <span>A</span>
+            <span>C</span>
+            <span>T</span>
+            <span>O</span>
+            <span>E</span>
+          </div>
+          <div class="start-button" id="start-button">Jugar</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="login" id="login">
+      <div class="shadow-back">
+        <form onSubmit="login(event)" id="loginForm">
+          <h1>Registrate</h1>
+          <input type="text" placeholder="Usuario" id="user" name="user" />
+          <input type="submit" value="Entrar" id="loginButton" />
+        </form>
+      </div>
+    </section>
+
+    <section class="lobby" id="lobby">
+      <nav>
+        <h1>Tic Tac Toe</h1>
+        <div class="options-buttons">
+          <h2 id="username">Username</h2>
+          <div class="logOut-button" id="logOut-button" title="Salir">
+            <box-icon name="log-out-circle"></box-icon>
+          </div>
+        </div>
+      </nav>
+      <div class="shadow-back">
+        <div class="lobby-container">
+          <div class="new-game">
+            <h1>Nueva partida</h1>
+            <div class="newGame-button" id="newGame-button">Buscar</div>
+          </div>
+          <div class="history-games">
+            <h1>Historial de partidas</h1>
+            <div class="history-container" id="history-container">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="game-set" id="game-set">
+      <div class="shadow-back">
+        <div class="chat">
+          <div class="messages" id="messages">
+            
+          </div>
+          <form onSubmit="sendData(event)" id="chatForm">
+            <input
+              type="text"
+              placeholder="Escriba un mensaje"
+              id="message"
+              name="message"
+            />
+            <input type="submit" value="Enviar" id="sendButton" />
+          </form>
+          <div class="fast-messages">
+            <div id="fast-message1">Buena suerte.</div>
+            <div id="fast-message2">Buena jugada.</div>
+            <div id="fast-message3">Buena partida.</div>
+            <div id="fast-message4">Gracias.</div>
+            <div id="fast-message5">Igualmente.</div>
+            <div id="fast-message6">De nada.</div>
+          </div>
+        </div>
+        <div class="game-board">
+          <div class="winner-message" id="winner-message">
+            <h1>¡¡HAZ GANADO LA PARTIDA!!</h1>
+            <h3 id="winner-msg">Felicidades ganador.</h3>
+            <button id="return-winner-button">Volver</button>
+          </div>
+          <div class="loser-message" id="loser-message">
+            <h1>Haz perdido la partida</h1>
+            <h3 id="loser-msg">Suerte en la próxima.</h3>
+            <button id="return-loser-button">Volver</button>
+          </div>
+          <div class="draw-message" id="draw-message">
+            <h1>La partida llego a un empate</h1>
+            <h3 id="draw-msg">¿Aceptas la revancha?</h3>
+            <button id="draw-button-yes">Acepto</button>
+            <button id="draw-button-no">No</button>
+          </div>
+          <div class="waiting-message" id="waiting-message">
+            <h1 id="waiting-msg">Es el turno de ...</h1>
+          </div>
+          <div class="rivals">
+            <h2 id="player1">Rival 1</h2>
+            <h1>Vs</h1>
+            <h2 id="player2">Rival 2</h2>
+          </div>
+          <div class="board">
+            <div id="p1_1">
+              <img src="" alt="" class="imgBoard emptyCard" onclick="fillSpace(event)" id="img-p1_1" data-card>
+            </div>
+            <div id="p1_2">
+              <img src="" alt="" class="imgBoard emptyCard" onclick="fillSpace(event)" id="img-p1_2" data-card>
+            </div>
+            <div id="p1_3">
+              <img src="" alt="" class="imgBoard emptyCard" onclick="fillSpace(event)" id="img-p1_3" data-card>
+            </div>
+            <div id="p2_1">
+              <img src="" alt="" class="imgBoard emptyCard" onclick="fillSpace(event)" id="img-p2_1" data-card>
+            </div>
+            <div id="p2_2">
+              <img src="" alt="" class="imgBoard emptyCard" onclick="fillSpace(event)" id="img-p2_2" data-card>
+            </div>
+            <div id="p2_3">
+              <img src="" alt="" class="imgBoard emptyCard" onclick="fillSpace(event)" id="img-p2_3" data-card>
+            </div>
+            <div id="p3_1">
+              <img src="" alt="" class="imgBoard emptyCard" onclick="fillSpace(event)" id="img-p3_1" data-card>
+            </div>
+            <div id="p3_2">
+              <img src="" alt="" class="imgBoard emptyCard" onclick="fillSpace(event)" id="img-p3_2" data-card>
+            </div>
+            <div id="p3_3">
+              <img src="" alt="" class="imgBoard emptyCard" onclick="fillSpace(event)" id="img-p3_3" data-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="./js/webSocketController.js"></script>
+  <script src="./js/functions.js"></script>
+  <script src="./js/loading.js"></script>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</html>
