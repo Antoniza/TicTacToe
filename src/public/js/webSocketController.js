@@ -360,6 +360,8 @@ function onMessage(evt) {
     handleLoadingGame(false);
   
     gameStarted(data, true);
+    const audio = new Audio('./sounds/start-battle-sound.mp3');
+    audio.play();
     localStorage.setItem("room", data.room);
     setTimeout(() => {
       document.getElementById("game-set").style.display = "flex";
