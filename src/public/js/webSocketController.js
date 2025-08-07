@@ -321,7 +321,17 @@ function wsConnect() {
   });
 }
 
-function onOpen(evt) {}
+function onOpen(evt) {
+  console.log("Conectado al servidor WebSocket");
+  document.getElementById("login-form").addEventListener("submit", login, false);
+  document.getElementById("message-form").addEventListener("submit", sendData, false);
+  document.querySelectorAll(".imgBoard").forEach((element) => {
+    element.addEventListener("click", fillSpace, false);
+  });
+  document.getElementById("alert-button").addEventListener("click", () => {
+    document.getElementById("alert").style.display = "none";
+  });
+}
 
 function onClose(evt) {
   alert("Te has deconectado del servidor");
